@@ -2,10 +2,10 @@ import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
 
 const Container = styled.div`
-  margin: 20px;
+  margin: 30px;
   padding: 10px;
   font-size: 2rem;
-  background: white;
+  background: #edf0ed;
   text-align: center;
   box-shadow: 2px 2px 10px 0px white;
 `;
