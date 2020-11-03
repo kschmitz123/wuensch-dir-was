@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import Background from './assets/background.jpeg';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -10,10 +11,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
       'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
       'Helvetica Neue', sans-serif; 
-    font-size: 16px;
-     -webkit-font-smoothing: antialiased; 
-    -moz-osx-font-smoothing: grayscale; 
-    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+      -webkit-font-smoothing: antialiased; 
+      -moz-osx-font-smoothing: grayscale; 
+      font-size: 16px;
+      background: url(${Background}) no-repeat center center fixed;
+      background-size: cover;
   }
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
