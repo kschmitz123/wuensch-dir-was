@@ -1,7 +1,7 @@
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Button from './components/Button';
-import WishListItem from './components/WishListItem';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyle from './GlobalStyle';
+import Add from './pages/Add';
+import Welcome from './pages/Welcome';
 
 function App() {
   return (
@@ -9,12 +9,11 @@ function App() {
       <GlobalStyle />
       <Switch>
         <Route exact path="/">
-          <WishListItem title="Kathrin" />
-          <Button>
-            <Link to="/wishlist">+</Link>
-          </Button>
+          <Welcome title="Kathrin" />
         </Route>
-        <Route path="/wishlist">Wishlist</Route>
+        <Route path="/add">
+          <Add />
+        </Route>
       </Switch>
     </Router>
   );
