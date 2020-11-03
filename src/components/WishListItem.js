@@ -1,5 +1,5 @@
-import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
+import styled from 'styled-components/macro';
 
 const Container = styled.div`
   margin: 30px;
