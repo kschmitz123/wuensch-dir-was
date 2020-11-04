@@ -21,7 +21,11 @@ const Container = styled.div`
 const Welcome = () => {
   return (
     <Container>
-      <WishListItems />
+      <WishListItems>
+        <WishListItem name="Kathrin" />
+        <WishListItem name="Mona" />
+        <WishListItem name="Lisa" />
+      </WishListItems>
       <NavLink to="/add">
         <svg
           xmins="http://www.w3.org/2000/svg"
