@@ -19,13 +19,13 @@ const NavLink = styled(Link)`
 const Container = styled.div`
   text-align: center;
 `;
-const Welcome = ({ title }) => {
+const Welcome = () => {
   return (
     <Container>
       <WishListItems>
-        <WishListItem title={title} />
-        <WishListItem title={title} />
-        <WishListItem title={title} />
+        <WishListItem title="Kathrin" />
+        <WishListItem title="Mona" />
+        <WishListItem title="Lisa" />
       </WishListItems>
       <NavLink to="/add">
         <svg
@@ -42,7 +42,3 @@ const Welcome = ({ title }) => {
 };
 
 export default Welcome;
-
-Welcome.propTypes = {
-  title: PropTypes.string.isRequired,
-};

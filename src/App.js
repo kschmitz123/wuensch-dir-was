@@ -10,12 +10,12 @@ function App() {
       <GlobalStyle />
       <Switch>
         <Route exact path="/">
-          <Welcome title="Kathrin" />
+          <Welcome />
         </Route>
         <Route path="/add">
           <Add />
         </Route>
-        <Route path="/:name">
+        <Route path="/wishlist/:name">
           <WishList />
         </Route>
       </Switch>

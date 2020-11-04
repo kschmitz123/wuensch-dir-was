@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   margin: 30px;
@@ -12,7 +13,9 @@ const Container = styled.div`
 export default function WishListItem({ title }) {
   return (
     <>
-      <Container>{title}</Container>
+      <Link to={`/wishlist/${title}`}>
+        <Container>{title}</Container>
+      </Link>
     </>
   );
 }
