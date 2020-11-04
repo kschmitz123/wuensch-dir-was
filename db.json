@@ -2,15 +2,23 @@
   "lists": [
     {
       "id": 1,
-      "title": "Kathrin"
+      "title": "Kathrin",
+      "wishes": ["Barbie"]
     },
     {
       "id": 2,
-      "title": "Mona"
+      "title": "Mona",
+      "wishes": ["car", "house"]
     },
     {
       "id": 3,
-      "title": "Lisa"
+      "title": "Lisa",
+      "wishes": ["car", "house"]
+    },
+    {
+      "title": "Johannes",
+      "wishes": ["Bär"],
+      "id": 4
     }
   ]
 }

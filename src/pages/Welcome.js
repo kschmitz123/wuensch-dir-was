@@ -12,8 +12,16 @@ const Container = styled.div`
 const Heading = styled.h1`
   color: white;
 `;
+const NavLink = styled(Link)`
+  text-decoration: none;
+  cursor: pointer;
+  &:visited {
+    color: black;
+  }
+`;
+
 const Welcome = () => {
-  const [lists, setLists] = useState(null);
+  const [lists, setLists] = useState([]);
   useEffect(async () => {
     const newLists = await getLists();
     setLists(newLists);
@@ -23,7 +31,9 @@ const Welcome = () => {
     <Container>
       <Heading>Christmas Wishlist</Heading>
       {lists?.map((list) => (
-        <WishListItem key={list.id} name={list.title} />
+        <NavLink key={list.id} to={`/wishlist/${list.id}`}>
+          <WishListItem title={list.title} />
+        </NavLink>
       ))}
       <Link to="/add">
         <FloatingActionButton>

@@ -15,7 +15,7 @@ function App() {
         <Route path="/add">
           <Add />
         </Route>
-        <Route path="/wishlist/:name">
+        <Route path="/wishlist/:listId">
           <WishList />
         </Route>
       </Switch>
