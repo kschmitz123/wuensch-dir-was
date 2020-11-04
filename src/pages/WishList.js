@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react';
 import FloatingActionButton from '../components/Button';
 import { getListById } from '../api/lists';
 import WishListItem from '../components/WishListItem';
+import BackArrow from '../assets/back-arrow.png';
 
 const Container = styled.div`
-  background: #edf0ed;
-  margin: 30px;
   text-align: center;
 `;
-
+const Heading = styled.h1`
+  color: white;
+`;
 const WishList = () => {
   const { listId } = useParams();
   const [list, setList] = useState([]);
@@ -22,14 +23,14 @@ const WishList = () => {
 
   return (
     <Container>
-      <h2>Wishlist for: {list?.title}</h2>
-      <ul>
-        {list.wishes?.map((wish) => (
-          <WishListItem key={wish} title={wish} />
-        ))}
-      </ul>
+      <Heading>Wishlist for: {list?.title}</Heading>
+      {list.wishes?.map((wish) => (
+        <WishListItem key={wish} title={wish} />
+      ))}
       <Link to="/">
-        <FloatingActionButton>Back</FloatingActionButton>
+        <FloatingActionButton>
+          <img src={BackArrow} alt="back" />
+        </FloatingActionButton>
       </Link>
     </Container>
   );

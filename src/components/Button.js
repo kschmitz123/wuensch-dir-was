@@ -7,9 +7,10 @@ const FloatingActionButton = styled.button`
   display: inline-grid;
   place-content: center;
   text-decoration: none;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   background-color: #ff9a9e;
+
   border: none;
   border-radius: 50%;
   cursor: pointer;
