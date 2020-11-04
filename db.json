@@ -2,15 +2,15 @@
   "lists": [
     {
       "id": 1,
-      "title": "Kathrin's List"
+      "title": "Kathrin"
     },
     {
       "id": 2,
-      "title": "Monas's List"
+      "title": "Mona"
     },
     {
       "id": 3,
-      "title": "Lisa's List"
+      "title": "Lisa"
     }
   ]
 }

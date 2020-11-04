@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import FloatingActionButton from '../components/Button';
 
 const Container = styled.div`
   background: #edf0ed;
@@ -7,22 +8,14 @@ const Container = styled.div`
   text-align: center;
 `;
 
-const NavLink = styled(Link)`
-  display: inline-grid;
-  place-content: center;
-  text-decoration: none;
-  height: 50px;
-  width: 50px;
-  background-color: #ff9a9e;
-  border-radius: 50%;
-  cursor: pointer;
-`;
 const WishList = () => {
   const { name } = useParams();
   return (
     <Container>
-      <h2>Wishlist from: {name}</h2>
-      <NavLink to="/">Back</NavLink>
+      <h2>Wishlist for: {name}</h2>
+      <Link to="/">
+        <FloatingActionButton>Back</FloatingActionButton>
+      </Link>
     </Container>
   );
 };

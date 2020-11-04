@@ -1,41 +1,42 @@
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components/macro';
+import { Link } from 'react-router-dom';
+import { getLists } from '../api/lists';
 import WishListItem from '../components/WishListItem';
-
-const WishListItems = styled.div``;
-
-const NavLink = styled(Link)`
-  display: inline-grid;
-  place-content: center;
-  text-decoration: none;
-  height: 50px;
-  width: 50px;
-  background-color: #ff9a9e;
-  border-radius: 50%;
-  cursor: pointer;
-`;
+import FloatingActionButton from '../components/Button';
 
 const Container = styled.div`
   text-align: center;
 `;
+
+const Heading = styled.h1`
+  color: white;
+`;
 const Welcome = () => {
+  const [lists, setLists] = useState(null);
+  useEffect(async () => {
+    const newLists = await getLists();
+    setLists(newLists);
+  }, []);
+
   return (
     <Container>
-      <WishListItems>
-        <WishListItem name="Kathrin" />
-        <WishListItem name="Mona" />
-        <WishListItem name="Lisa" />
-      </WishListItems>
-      <NavLink to="/add">
-        <svg
-          xmins="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-        >
-          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-        </svg>
-      </NavLink>
+      <Heading>Christmas Wishlist</Heading>
+      {lists?.map((list) => (
+        <WishListItem key={list.id} name={list.title} />
+      ))}
+      <Link to="/add">
+        <FloatingActionButton>
+          <svg
+            xmins="http://www.w3.org/2000/svg"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+          </svg>
+        </FloatingActionButton>
+      </Link>
     </Container>
   );
 };

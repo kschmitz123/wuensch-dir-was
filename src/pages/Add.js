@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import FloatingActionButton from '../components/Button';
 
 const Container = styled.div`
   background: #edf0ed;
@@ -7,16 +8,6 @@ const Container = styled.div`
   text-align: center;
 `;
 
-const NavLink = styled(Link)`
-  display: inline-grid;
-  place-content: center;
-  text-decoration: none;
-  height: 50px;
-  width: 50px;
-  background-color: #ff9a9e;
-  border-radius: 50%;
-  cursor: pointer;
-`;
 const Add = () => {
   return (
     <Container>
@@ -24,7 +15,9 @@ const Add = () => {
         <h1>This is a page</h1>
         <p>Add your wishlist items here.</p>
       </div>
-      <NavLink to="/">Back</NavLink>
+      <Link to="/">
+        <FloatingActionButton>Back</FloatingActionButton>
+      </Link>
     </Container>
   );
 };
