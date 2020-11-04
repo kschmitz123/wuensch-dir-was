@@ -1,0 +1,16 @@
+{
+  "lists": [
+    {
+      "id": 1,
+      "title": "Kathrin's List"
+    },
+    {
+      "id": 2,
+      "title": "Monas's List"
+    },
+    {
+      "id": 3,
+      "title": "Lisa's List"
+    }
+  ]
+}
