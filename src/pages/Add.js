@@ -16,6 +16,7 @@ const Form = styled.form`
 `;
 const Add = () => {
   const [title, setTitle] = useState('');
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
 
   const handleChange = (event) => {
@@ -23,8 +24,9 @@ const Add = () => {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setTitle('');
+    setLoading(true);
     const newList = await postList({ title });
+    setLoading(false);
     history.push(`/wishlist/${newList.id}`);
   };
   return (
@@ -35,8 +37,9 @@ const Add = () => {
           type="text"
           value={title}
           onChange={handleChange}
+          required
         />
-        <button type="submit">Add</button>
+        <input type="submit" value={Add} disabled={loading} />
       </Form>
       <Link to="/">
         <FloatingActionButton>
