@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import FloatingActionButton from '../components/Button';
 import BackArrow from '../assets/back-arrow.png';
@@ -16,14 +16,16 @@ const Form = styled.form`
 `;
 const Add = () => {
   const [title, setTitle] = useState('');
+  const history = useHistory();
 
   const handleChange = (event) => {
     setTitle(event.target.value);
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setTitle('');
-    postList({ title });
+    const newList = await postList({ title });
+    history.push(`/wishlist/${newList.id}`);
   };
   return (
     <Container>
