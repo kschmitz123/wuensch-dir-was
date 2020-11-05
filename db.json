@@ -1,0 +1,24 @@
+{
+  "lists": [
+    {
+      "id": 1,
+      "title": "Kathrin",
+      "wishes": ["Barbie"]
+    },
+    {
+      "id": 2,
+      "title": "Mona",
+      "wishes": ["car", "house"]
+    },
+    {
+      "id": 3,
+      "title": "Lisa",
+      "wishes": ["car", "house"]
+    },
+    {
+      "title": "Johannes",
+      "wishes": ["Bär"],
+      "id": 4
+    }
+  ]
+}
