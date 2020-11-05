@@ -17,6 +17,7 @@ const Form = styled.form`
 const Add = () => {
   const [title, setTitle] = useState('');
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
   const history = useHistory();
 
   const handleChange = (event) => {
@@ -24,10 +25,16 @@ const Add = () => {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true);
-    const newList = await postList({ title });
-    setLoading(false);
-    history.push(`/wishlist/${newList.id}`);
+
+    try {
+      setLoading(true);
+      setErrorMessage(null);
+      const newList = await postList({ title });
+      setLoading(false);
+      history.push(`/wishlist/${newList.id}`);
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
   };
   return (
     <Container>
@@ -39,8 +46,10 @@ const Add = () => {
           onChange={handleChange}
           required
         />
-        <input type="submit" value={Add} disabled={loading} />
+        <input type="submit" value="Add" disabled={loading} />
       </Form>
+      {loading && <div>Loading...</div>}
+      {errorMessage && <p>{errorMessage}</p>}
       <Link to="/">
         <FloatingActionButton>
           <img src={BackArrow} alt="back" />

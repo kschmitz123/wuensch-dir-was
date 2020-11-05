@@ -11,12 +11,12 @@
       "wishes": ["car", "house"]
     },
     {
-      "title": "Johannes",
-      "wishes": ["Bär"]
+      "title": "JOhannes",
+      "id": 4
     },
     {
-      "title": "Papa",
-      "id": 4
+      "title": "mama",
+      "id": 5
     }
   ]
 }

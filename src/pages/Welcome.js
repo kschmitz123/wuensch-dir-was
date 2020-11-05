@@ -57,8 +57,8 @@ const Welcome = () => {
     <Container>
       <Heading>Christmas Wishlist</Heading>
       {lists?.map((list) => (
-        <ListItem>
-          <NavLink key={list.id} to={`/wishlist/${list.id}`}>
+        <ListItem key={list.id}>
+          <NavLink to={`/wishlist/${list.id}`}>
             <WishListItem title={list.title} />
           </NavLink>
           <Button type="button" onClick={() => handleDelete(list.id)}>
