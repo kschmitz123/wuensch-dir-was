@@ -31,10 +31,12 @@ const WishList = () => {
   return (
     <Container>
       <Heading>Wishlist for: {list?.title}</Heading>
-      {list.wishes?.map((wish) => (
-        <WishListItem key={wish} title={wish} />
-      ))}
-      <DangerButton onClick={handleDelete} type="submit">
+      <li>
+        {list.wishes?.map((wish) => (
+          <WishListItem key={wish} title={wish} />
+        ))}
+      </li>
+      <DangerButton onClick={handleDelete} type="button">
         Delete
       </DangerButton>
       <Link to="/">
