@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
+  width: 250px;
   margin: 30px;
   padding: 10px;
   font-size: 2rem;
