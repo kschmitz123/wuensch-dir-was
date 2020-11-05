@@ -1,11 +1,6 @@
 {
   "lists": [
     {
-      "id": 1,
-      "title": "Kathrin",
-      "wishes": ["Barbie"]
-    },
-    {
       "id": 2,
       "title": "Mona",
       "wishes": ["car", "house"]
@@ -17,7 +12,10 @@
     },
     {
       "title": "Johannes",
-      "wishes": ["Bär"],
+      "wishes": ["Bär"]
+    },
+    {
+      "title": "Papa",
       "id": 4
     }
   ]

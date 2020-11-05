@@ -19,13 +19,12 @@ const Button = styled.button`
     rgba(238, 238, 238, 1) 33%,
     rgba(227, 41, 41, 1) 100%
   );
-
   width: 40px;
   height: 40px;
   border-radius: 25px;
   border: none;
   position: relative;
-  margin-left: -52px;
+  margin-left: -30px;
 `;
 const Heading = styled.h1`
   color: white;
