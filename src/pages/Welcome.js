@@ -36,16 +36,28 @@ const NavLink = styled(Link)`
     color: black;
   }
 `;
+const ErrorMessage = styled.div`
+  background: white;
+`;
 
 const Welcome = () => {
   const [lists, setLists] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   async function refreshLists() {
     const newLists = await getLists();
     setLists(newLists);
   }
   useEffect(async () => {
-    await refreshLists(setLists);
+    try {
+      setLoading(true);
+      setErrorMessage(null);
+      await refreshLists(setLists);
+      setLoading(false);
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
   }, []);
 
   const handleDelete = async (listId) => {
@@ -66,6 +78,8 @@ const Welcome = () => {
           </Button>
         </ListItem>
       ))}
+      {loading && <div>Loading...</div>}
+      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       <Link to="/add">
         <FloatingActionButton>
           <svg

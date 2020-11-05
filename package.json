@@ -17,7 +17,8 @@
   },
   "scripts": {
     "api": "json-server --watch db.json --port 5000",
-    "start": "concurrently \"react-scripts start\" \"json-server --watch db.json --port 5000\"",
+    "app": "react-scripts start",
+    "start": "concurrently \"npm run api\" \"npm run app\"",
     "build:app": "react-scripts build",
     "build:storybook": "build-storybook -s public --no-dll -o build/storybook",
     "build": "npm run build:app && npm run build:storybook",
