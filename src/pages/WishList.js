@@ -32,32 +32,30 @@ const WishList = () => {
     await deleteListById(listId);
     history.push('/');
   };
-  const handleChange = (event) => {
-    setWishToAdd([event.target.value, ...list.wishes]);
-  };
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async () => {
     patchListItem(listId, wishToAdd);
+  };
+  const handleChange = (event) => {
+    setWishToAdd([...list.wishes, event.target.value]);
   };
 
   return (
     <Container>
       <Heading>Wishlist for: {list?.title}</Heading>
-      <Form onSubmit={handleSubmit}>
-        <input
-          placeholder="Add wish"
-          type="text"
-          value={wishToAdd}
-          onChange={handleChange}
-          required
-        />
-        <input type="submit" value="Add" />
-      </Form>
       <li>
         {list.wishes?.map((wish) => (
           <WishListItem key={wish} title={wish} />
         ))}
       </li>
+      <Form onSubmit={handleSubmit}>
+        <input
+          placeholder="Add wish"
+          type="text"
+          onChange={handleChange}
+          required
+        />
+        <input type="submit" value="Add" />
+      </Form>
       <DangerButton onClick={handleDelete} type="button">
         Delete
       </DangerButton>
