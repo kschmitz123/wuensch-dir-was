@@ -19,17 +19,22 @@ const Add = () => {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
   const history = useHistory();
+  const [wishes, setWishes] = useState([]);
 
   const handleChange = (event) => {
     setTitle(event.target.value);
   };
+  const handleWishChange = (event) => {
+    setWishes(event.target.value.split(','));
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       setLoading(true);
       setErrorMessage(null);
-      const newList = await postList({ title });
+      const newList = await postList({ title, wishes });
       setLoading(false);
       history.push(`/wishlist/${newList.id}`);
     } catch (error) {
@@ -45,6 +50,12 @@ const Add = () => {
           value={title}
           onChange={handleChange}
           required
+        />
+        <input
+          type="text"
+          onChange={handleWishChange}
+          value={wishes}
+          placeholder="Insert Wishes here: Wish 1, Wish 2, ..."
         />
         <input type="submit" value="Add" disabled={loading} />
       </Form>

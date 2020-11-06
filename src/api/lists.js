@@ -22,3 +22,12 @@ export async function postList(title) {
   const newList = await response.json();
   return newList;
 }
+export async function patchListItem(id, wish) {
+  await fetch(`http://localhost:5000/lists/${id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      wishes: wish,
+    }),
+  });
+}
