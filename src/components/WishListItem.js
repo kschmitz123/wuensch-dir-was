@@ -3,8 +3,8 @@ import styled from 'styled-components/macro';
 
 const Container = styled.div`
   width: 250px;
-  margin: 30px;
-  padding: 10px;
+  margin: 5px;
+  padding: 7px;
   font-size: 2rem;
   background: #edf0ed;
   text-align: center;

@@ -19,13 +19,12 @@ const Button = styled.button`
     rgba(238, 238, 238, 1) 33%,
     rgba(227, 41, 41, 1) 100%
   );
-
   width: 40px;
   height: 40px;
   border-radius: 25px;
   border: none;
   position: relative;
-  margin-left: -52px;
+  margin-left: -30px;
 `;
 const Heading = styled.h1`
   color: white;
@@ -37,16 +36,28 @@ const NavLink = styled(Link)`
     color: black;
   }
 `;
+const ErrorMessage = styled.div`
+  background: white;
+`;
 
 const Welcome = () => {
   const [lists, setLists] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   async function refreshLists() {
     const newLists = await getLists();
     setLists(newLists);
   }
   useEffect(async () => {
-    await refreshLists(setLists);
+    try {
+      setLoading(true);
+      setErrorMessage(null);
+      await refreshLists(setLists);
+      setLoading(false);
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
   }, []);
 
   const handleDelete = async (listId) => {
@@ -58,8 +69,8 @@ const Welcome = () => {
     <Container>
       <Heading>Christmas Wishlist</Heading>
       {lists?.map((list) => (
-        <ListItem>
-          <NavLink key={list.id} to={`/wishlist/${list.id}`}>
+        <ListItem key={list.id}>
+          <NavLink to={`/wishlist/${list.id}`}>
             <WishListItem title={list.title} />
           </NavLink>
           <Button type="button" onClick={() => handleDelete(list.id)}>
@@ -67,6 +78,8 @@ const Welcome = () => {
           </Button>
         </ListItem>
       ))}
+      {loading && <div>Loading...</div>}
+      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       <Link to="/add">
         <FloatingActionButton>
           <svg
